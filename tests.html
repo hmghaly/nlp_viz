@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)https://spyysalo.github.io/conllu.js/tests.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>:root{--litepicker-container-months-color-bg: #fff;--litepicker-container-months-box-shadow-color: #ddd;--litepicker-footer-color-bg: #fafafa;--litepicker-footer-box-shadow-color: #ddd;--litepicker-tooltip-color-bg: #fff;--litepicker-month-header-color: #333;--litepicker-button-prev-month-color: #9e9e9e;--litepicker-button-next-month-color: #9e9e9e;--litepicker-button-prev-month-color-hover: #2196f3;--litepicker-button-next-month-color-hover: #2196f3;--litepicker-month-width: calc(var(--litepicker-day-width) * 7);--litepicker-month-weekday-color: #9e9e9e;--litepicker-month-week-number-color: #9e9e9e;--litepicker-day-width: 38px;--litepicker-day-color: #333;--litepicker-day-color-hover: #2196f3;--litepicker-is-today-color: #f44336;--litepicker-is-in-range-color: #bbdefb;--litepicker-is-locked-color: #9e9e9e;--litepicker-is-start-color: #fff;--litepicker-is-start-color-bg: #2196f3;--litepicker-is-end-color: #fff;--litepicker-is-end-color-bg: #2196f3;--litepicker-button-cancel-color: #fff;--litepicker-button-cancel-color-bg: #9e9e9e;--litepicker-button-apply-color: #fff;--litepicker-button-apply-color-bg: #2196f3;--litepicker-button-reset-color: #909090;--litepicker-button-reset-color-hover: #2196f3;--litepicker-highlighted-day-color: #333;--litepicker-highlighted-day-color-bg: #ffeb3b}.show-week-numbers{--litepicker-month-width: calc(var(--litepicker-day-width) * 8)}.litepicker{font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;font-size:0.8em;display:none}.litepicker button{border:none;background:none}.litepicker .container__main{display:-webkit-box;display:-ms-flexbox;display:flex}.litepicker .container__months{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;background-color:var(--litepicker-container-months-color-bg);border-radius:5px;-webkit-box-shadow:0 0 5px var(--litepicker-container-months-box-shadow-color);box-shadow:0 0 5px var(--litepicker-container-months-box-shadow-color);width:calc(var(--litepicker-month-width) + 10px);-webkit-box-sizing:content-box;box-sizing:content-box}.litepicker .container__months.columns-2{width:calc((var(--litepicker-month-width) * 2) + 20px)}.litepicker .container__months.columns-3{width:calc((var(--litepicker-month-width) * 3) + 30px)}.litepicker .container__months.columns-4{width:calc((var(--litepicker-month-width) * 4) + 40px)}.litepicker .container__months.split-view .month-item-header .button-previous-month,.litepicker .container__months.split-view .month-item-header .button-next-month{visibility:visible}.litepicker .container__months .month-item{padding:5px;width:var(--litepicker-month-width);-webkit-box-sizing:content-box;box-sizing:content-box}.litepicker .container__months .month-item-header{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;font-weight:500;padding:10px 5px;text-align:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:var(--litepicker-month-header-color)}.litepicker .container__months .month-item-header div{-webkit-box-flex:1;-ms-flex:1;flex:1}.litepicker .container__months .month-item-header div>.month-item-name{margin-right:5px}.litepicker .container__months .month-item-header div>.month-item-year{padding:0}.litepicker .container__months .month-item-header .reset-button{color:var(--litepicker-button-reset-color)}.litepicker .container__months .month-item-header .reset-button>svg{fill:var(--litepicker-button-reset-color)}.litepicker .container__months .month-item-header .reset-button *{pointer-events:none}.litepicker .container__months .month-item-header .reset-button:hover{color:var(--litepicker-button-reset-color-hover)}.litepicker .container__months .month-item-header .reset-button:hover>svg{fill:var(--litepicker-button-reset-color-hover)}.litepicker .container__months .month-item-header .button-previous-month,.litepicker .container__months .month-item-header .button-next-month{visibility:hidden;text-decoration:none;padding:3px 5px;border-radius:3px;-webkit-transition:color 0.3s, border 0.3s;transition:color 0.3s, border 0.3s;cursor:default}.litepicker .container__months .month-item-header .button-previous-month *,.litepicker .container__months .month-item-header .button-next-month *{pointer-events:none}.litepicker .container__months .month-item-header .button-previous-month{color:var(--litepicker-button-prev-month-color)}.litepicker .container__months .month-item-header .button-previous-month>svg,.litepicker .container__months .month-item-header .button-previous-month>img{fill:var(--litepicker-button-prev-month-color)}.litepicker .container__months .month-item-header .button-previous-month:hover{color:var(--litepicker-button-prev-month-color-hover)}.litepicker .container__months .month-item-header .button-previous-month:hover>svg{fill:var(--litepicker-button-prev-month-color-hover)}.litepicker .container__months .month-item-header .button-next-month{color:var(--litepicker-button-next-month-color)}.litepicker .container__months .month-item-header .button-next-month>svg,.litepicker .container__months .month-item-header .button-next-month>img{fill:var(--litepicker-button-next-month-color)}.litepicker .container__months .month-item-header .button-next-month:hover{color:var(--litepicker-button-next-month-color-hover)}.litepicker .container__months .month-item-header .button-next-month:hover>svg{fill:var(--litepicker-button-next-month-color-hover)}.litepicker .container__months .month-item-weekdays-row{display:-webkit-box;display:-ms-flexbox;display:flex;justify-self:center;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;color:var(--litepicker-month-weekday-color)}.litepicker .container__months .month-item-weekdays-row>div{padding:5px 0;font-size:85%;-webkit-box-flex:1;-ms-flex:1;flex:1;width:var(--litepicker-day-width);text-align:center}.litepicker .container__months .month-item:first-child .button-previous-month{visibility:visible}.litepicker .container__months .month-item:last-child .button-next-month{visibility:visible}.litepicker .container__months .month-item.no-previous-month .button-previous-month{visibility:hidden}.litepicker .container__months .month-item.no-next-month .button-next-month{visibility:hidden}.litepicker .container__days{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;justify-self:center;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;text-align:center;-webkit-box-sizing:content-box;box-sizing:content-box}.litepicker .container__days>div,.litepicker .container__days>a{padding:5px 0;width:var(--litepicker-day-width)}.litepicker .container__days .day-item{color:var(--litepicker-day-color);text-align:center;text-decoration:none;border-radius:3px;-webkit-transition:color 0.3s, border 0.3s;transition:color 0.3s, border 0.3s;cursor:default}.litepicker .container__days .day-item:hover{color:var(--litepicker-day-color-hover);-webkit-box-shadow:inset 0 0 0 1px var(--litepicker-day-color-hover);box-shadow:inset 0 0 0 1px var(--litepicker-day-color-hover)}.litepicker .container__days .day-item.is-today{color:var(--litepicker-is-today-color)}.litepicker .container__days .day-item.is-locked{color:var(--litepicker-is-locked-color)}.litepicker .container__days .day-item.is-locked:hover{color:var(--litepicker-is-locked-color);-webkit-box-shadow:none;box-shadow:none;cursor:default}.litepicker .container__days .day-item.is-in-range{background-color:var(--litepicker-is-in-range-color);border-radius:0}.litepicker .container__days .day-item.is-start-date{color:var(--litepicker-is-start-color);background-color:var(--litepicker-is-start-color-bg);border-top-left-radius:5px;border-bottom-left-radius:5px;border-top-right-radius:0;border-bottom-right-radius:0}.litepicker .container__days .day-item.is-start-date.is-flipped{border-top-left-radius:0;border-bottom-left-radius:0;border-top-right-radius:5px;border-bottom-right-radius:5px}.litepicker .container__days .day-item.is-end-date{color:var(--litepicker-is-end-color);background-color:var(--litepicker-is-end-color-bg);border-top-left-radius:0;border-bottom-left-radius:0;border-top-right-radius:5px;border-bottom-right-radius:5px}.litepicker .container__days .day-item.is-end-date.is-flipped{border-top-left-radius:5px;border-bottom-left-radius:5px;border-top-right-radius:0;border-bottom-right-radius:0}.litepicker .container__days .day-item.is-start-date.is-end-date{border-top-left-radius:5px;border-bottom-left-radius:5px;border-top-right-radius:5px;border-bottom-right-radius:5px}.litepicker .container__days .day-item.is-highlighted{color:var(--litepicker-highlighted-day-color);background-color:var(--litepicker-highlighted-day-color-bg)}.litepicker .container__days .week-number{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;color:var(--litepicker-month-week-number-color);font-size:85%}.litepicker .container__footer{text-align:right;padding:10px 5px;margin:0 5px;background-color:var(--litepicker-footer-color-bg);-webkit-box-shadow:inset 0px 3px 3px 0px var(--litepicker-footer-box-shadow-color);box-shadow:inset 0px 3px 3px 0px var(--litepicker-footer-box-shadow-color);border-bottom-left-radius:5px;border-bottom-right-radius:5px}.litepicker .container__footer .preview-date-range{margin-right:10px;font-size:90%}.litepicker .container__footer .button-cancel{background-color:var(--litepicker-button-cancel-color-bg);color:var(--litepicker-button-cancel-color);border:0;padding:3px 7px 4px;border-radius:3px}.litepicker .container__footer .button-cancel *{pointer-events:none}.litepicker .container__footer .button-apply{background-color:var(--litepicker-button-apply-color-bg);color:var(--litepicker-button-apply-color);border:0;padding:3px 7px 4px;border-radius:3px;margin-left:10px;margin-right:10px}.litepicker .container__footer .button-apply:disabled{opacity:0.7}.litepicker .container__footer .button-apply *{pointer-events:none}.litepicker .container__tooltip{position:absolute;margin-top:-4px;padding:4px 8px;border-radius:4px;background-color:var(--litepicker-tooltip-color-bg);-webkit-box-shadow:0 1px 3px rgba(0,0,0,0.25);box-shadow:0 1px 3px rgba(0,0,0,0.25);white-space:nowrap;font-size:11px;pointer-events:none;visibility:hidden}.litepicker .container__tooltip:before{position:absolute;bottom:-5px;left:calc(50% - 5px);border-top:5px solid rgba(0,0,0,0.12);border-right:5px solid transparent;border-left:5px solid transparent;content:""}.litepicker .container__tooltip:after{position:absolute;bottom:-4px;left:calc(50% - 4px);border-top:4px solid var(--litepicker-tooltip-color-bg);border-right:4px solid transparent;border-left:4px solid transparent;content:""}
+</style>
+    
+    <title>conllu.js</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="CoNLL-U format library for JavaScript">
+
+    <link rel="stylesheet" href="./tests_files/jquery-ui-redmond.css">
+    <link rel="stylesheet" href="./tests_files/main.css">
+    <link rel="stylesheet" href="./tests_files/style-vis.css">
+
+    <script type="text/javascript" src="./tests_files/head.load.min.js.download"></script>
+</head>
+
+<body>
+  
+  <header class="site-header">      
+    <div class="wrap">
+      <a class="topnav" href="https://github.com/spyysalo/conllu.js">conllu.js</a>
+    </div>
+  </header>
+
+  <div class="page-content">
+    <div class="wrap">
+      <div class="entry">
+
+	<header class="entry-header">
+	  <h1>CoNLL-U format tests</h1>
+	</header>
+
+<article class="entry-content">
+
+<p>This file contains an informal mixture of tests for various aspects of
+the CoNLL-U format.</p>
+
+<h2>Valid examples:</h2>
+
+<h3>Multiword token ("haven't")</h3>
+
+<div class="conllu-parse" tabs="yes">
+1	I	I	PRON	PRN	Num=Sing|Per=1	2	nsubj	_	_
+2-3	haven't	_	_	_	_	_	_	_	_
+2	have	have	VERB	VB	Tens=Pres	0	root	_	_
+3	not	not	ADV	RB	_	2	neg	_	_
+4	a	a	DET	DT	_	5	det	_	_
+5	clue	clue	NOUN	NN	Num=Sing	2	dobj	_	_
+6	.	.	PUNCT	.	_	2	punct	_	_
+
+</div>
+
+<h3>Additional dependencies (DEPS field)</h3>
+
+<div class="conllu-parse" tabs="yes">
+1	They	they	PRON	PRN	Case=Nom|Num=Plur	2	nsubj	4:nsubj	_
+2	buy	buy	VERB	VBP	Num=Plur|Per=3|Tense=Pres	0	root	_	_
+3	and	and	CONJ	CC	_	2	cc	_	_
+4	sell	sell	VERB	VBP	Num=Plur|Per=3|Tense=Pres	2	conj	_	_
+5	books	book	NOUN	NNS	Num=Plur	2	dobj	4:dobj	_
+6	.	.	PUNCT	.	_	2	punct	_	_
+
+</div>
+
+<h3>Multiple sentences</h3>
+
+<div class="conllu-parse" tabs="yes">
+1	LONDRA	Londra	NOUN	_	_	0	root	_	_
+2	.	.	.	_	_	1	punct	_	_
+
+# This is a comment
+1	Gas	gas	NOUN	_	Gen=M|Num=N	0	root	_	_
+2-3	dalla	_	_	_	_	_	_	_	_
+2	da	da	ADP	_	_	1	adpmod	_	_
+3	la	la	DET	_	Gen=F|Num=S	4	det	_	_
+4	statua	statua	NOUN	_	Gen=F|Num=S	2	adpobj	_	_
+5	.	.	.	_	_	1	punct	_	_
+
+1	Evacuata	evacuare	VERB	_	Gen=F|Mod=P|Num=S	3	partmod	_	_
+2	la	il	DET	_	Gen=F|Num=S	3	det	_	_
+3	Tate	Tate	NOUN	_	_	0	root	_	_
+4	Gallery	Gallery	NOUN	_	_	3	mwe	_	_
+5	.	.	PUNCT	_	_	3	punct	_	_
+
+</div>
+
+<h3>Multiple sentences and multiword token</h3>
+
+<pre><code class="language-conllu"># give the toys to the children
+1     donner    donner   VERB   _   VerbForm=Inf               0   root   _   give
+2     les       le       DET    _   Definite=Def|Number=Plur   3   det    _   the
+3     jouets    jouet    NOUN   _   Gender=Masc|Number=Plur    1   dobj   _   toys
+4-5   aux       _        _      _   _                          _   _      _   _
+4     à         à        ADP    _   _                          6   case   _   to
+5     les       le       DET    _   Definite=Def|Number=Plur   6   det    _   the
+6     enfants   enfant   NOUN   _   Gender=Masc|Number=Plur    1   nmod   _   children
+
+# now the parallel English tree
+1     give       donner   VERB   _   VerbForm=Inf               0   root   _   give
+2     the        le       DET    _   Definite=Def|Number=Plur   3   det    _   the
+3     toys       jouet    NOUN   _   Gender=Masc|Number=Plur    1   dobj   _   toys
+4     to         à        ADP    _   _                          6   case   _   to
+5     the        le       DET    _   Definite=Def|Number=Plur   6   det    _   the
+6     children   enfant   NOUN   _   Gender=Masc|Number=Plur    1   nmod   _   children
+</code></pre>
+
+<h3>Sentence labels</h3>
+
+<div class="conllu-parse" tabs="yes">
+# sentence-label 1
+1	LONDRA	Londra	NOUN	_	_	0	root	_	_
+2	.	.	.	_	_	1	punct	_	_
+
+# sentence-label A
+1	Gas	gas	NOUN	_	Gen=M|Num=N	0	root	_	_
+2	.	.	.	_	_	1	punct	_	_
+
+# sentence-label B4
+1	Tate	Tate	NOUN	_	_	0	root	_	_
+2	Gallery	Gallery	NOUN	_	_	1	mwe	_	_
+3	.	.	PUNCT	_	_	1	punct	_	_
+
+</div>
+
+<h3>Custom styles</h3>
+
+<div class="conllu-parse" tabs="yes">
+1	They	they	PRON	PRN	Case=Nom|Num=Plur	2	nsubj	4:nsubj	_
+2	buy	buy	VERB	VBP	Num=Plur|Per=3|Tense=Pres	0	root	_	_
+3	and	and	CONJ	CC	_	2	cc	_	_
+4	sell	sell	VERB	VBP	Num=Plur|Per=3|Tense=Pres	2	conj	_	_
+5	books	book	NOUN	NNS	Num=Plur	2	dobj	4:dobj	_
+6	.	.	PUNCT	.	_	2	punct	_	_
+
+</div>
+
+<h2>Acceptable examples with loose parsing</h2>
+
+Otherwise valid, but two spaces instead of single tab as field
+separator and no terminal newline:
+
+<div class="conllu-parse" tabs="yes">
+1  I  I  PRON  PRN  Num=Sing|Per=1  2  nsubj  _  _
+2-3  haven't  _  _  _  _  _  _  _  _
+2  have  have  VERB  VB  Tens=Pres  0  root  _  _
+3  not  not  ADV  RB  _  2  neg  _  _
+4  a  a  DET  DT  _  5  det  _  _
+5  clue  clue  NOUN  NN  Num=Sing  2  dobj  _  _
+6  .  .  PUNCT  .  _  2  punct  _  _
+</div>
+
+<h2>Non-valid examples:</h2>
+
+Non-valid examples from 
+<a href="https://github.com/universaldependencies/tools/">UD tools</a>
+test cases.
+
+<h3>ambiguous-feature.conll</h3>
+
+<div class="conllu-parse" tabs="yes">
+# not valid: feature definition is malformed / ambiguous (two "=" characters)
+1	non-valid	non-valid	NOUN	SP	A=B=C	0	ROOT	_	_
+
+</div>
+
+<h3>duplicate-feature.conll</h3>
+
+<div class="conllu-parse" tabs="yes">
+# not valid: feature name occurs twice
+1	non-valid	non-valid	NOUN	SP	Gen=M|Gen=M	0	ROOT	_	_
+
+</div>
+
+<h3>duplicate-id.conll</h3>
+
+<div class="conllu-parse" tabs="yes">
+# not valid: IDs must be sequential integers (1, 2, ...)
+1	valid	valid	NOUN	SP	_	0	ROOT	_	_
+1	.	.	.	FS	_	1	p	_	_
+
+</div>
+
+<h3>duplicate-value.conll</h3>
+
+<div class="conllu-parse" tabs="yes">
+# not valid: feature value occurs twice
+1	non-valid	non-valid	NOUN	SP	Gen=M,M	0	ROOT	_	_
+
+</div>
+
+<h3>empty-head.conll</h3>
+
+<div class="conllu-parse" tabs="yes">
+# not valid: HEAD must not be empty
+1	have	have	VERB	VB	Tens=Pres		root	_	_
+
+</div>
+
+<h3>empty-field.conll</h3>
+
+<div class="conllu-parse" tabs="yes">
+# not valid: no field can be empty.
+1		valid	NOUN	SP	_	0	ROOT	_	_
+
+</div>
+
+<h3>empty-sentence.conll</h3>
+
+<div class="conllu-parse" tabs="yes">
+# not valid: sentences must contain at least one word.
+
+# valid one-word sentence.
+1	valid	valid	NOUN	SP	_	0	ROOT	_	_
+
+</div>
+
+<h3>extra-empty-line.conll</h3>
+
+<div class="conllu-parse" tabs="yes">
+# valid one-word sentence.
+1	valid	valid	NOUN	SP	_	0	ROOT	_	_
+
+
+# format error: sentences must be separated by exactly one empty line
+# valid one-word sentence.
+1	valid	valid	NOUN	SP	_	0	ROOT	_	_
+
+</div>
+
+<h3>extra-field.conll</h3>
+
+<div class="conllu-parse" tabs="yes">
+# not valid: 11 TAB-separated fields
+1	non-valid	non-valid	NOUN	SP	_	0	ROOT	_	_	extra
+
+</div>
+
+<h3>id-starting-from-2.conll</h3>
+
+<div class="conllu-parse" tabs="yes">
+# valid one-word sentence.
+1	valid	valid	NOUN	SP	_	0	ROOT	_	_
+
+# not valid: ID must start at 1 for each new sentence
+2	valid	valid	NOUN	SP	_	0	ROOT	_	_
+
+</div>
+
+<h3>invalid-deps-id.conll</h3>
+
+<div class="conllu-parse" tabs="yes">
+# not valid: HEAD must reference a valid ID
+1	have	have	VERB	VB	Tens=Pres	0	root	3:nsubj	_
+2	.	.	.	FS	_	1	punct	_	_
+
+</div>
+
+<h3>invalid-deps-order.conll</h3>
+
+<div class="conllu-parse" tabs="yes">
+# not valid: DEPS must be sorted by HEAD index.
+1	They	they	PRON	PRN	Case=Nom|Num=Plur	2	nsubj	4:nsubj|2:xsubj	_
+2	buy	buy	VERB	VBP	Num=Plur|Per=3|Tense=Pres	0	root	_	_
+3	and	and	CONJ	CC	_	2	cc	_	_
+4	sell	sell	VERB	VBP	Num=Plur|Per=3|Tense=Pres	2	conj	_	_
+5	books	book	NOUN	NNS	Num=Plur	2	dobj	4:dobj	_
+6	.	.	PUNCT	.	_	2	punct	_	_
+
+</div>
+
+<h3>invalid-deps-syntax.conll</h3>
+
+<div class="conllu-parse" tabs="yes">
+# not valid: DEPS must be 'HEAD:REL' pairs separated by bars ('|')
+1	have	have	VERB	VB	Tens=Pres	0	root	2	_
+2	.	.	.	FS	_	1	punct	_	_
+
+</div>
+
+<h3>invalid-head.conll</h3>
+
+<div class="conllu-parse" tabs="yes">
+# not valid: HEAD must reference a valid ID
+1	have	have	VERB	VB	Tens=Pres	0	root	_	_
+2	.	.	.	FS	_	3	punct	_	_
+
+</div>
+
+<h3>invalid-range.conll</h3>
+
+<div class="conllu-parse" tabs="yes">
+# not valid: (first-last) multiword ranges must have first &lt;= last
+1	I	I	PRON	PRN	Num=Sing|Per=1	2	nsubj	_	_
+2-1	haven't	_	_	_	_	_	_	_	_
+2	have	have	VERB	VB	Tens=Pres	0	root	_	_
+3	not	not	ADV	RB	_	2	neg	_	_
+4	a	a	DET	DT	_	5	det	_	_
+5	clue	clue	NOUN	NN	Num=Sing	2	dobj	_	_
+6	.	.	PUNCT	.	_	2	punct	_	_
+
+</div>
+
+<h3>lowercase-feature.conll</h3>
+
+<div class="conllu-parse" tabs="yes">
+# not valid: feature names must have format '[A-Z0-9][a-zA-Z0-9]*'
+# (see http://universaldependencies.github.io/docs/features.html)
+1	non-valid	non-valid	NOUN	SP	lower=Nonvalid	0	ROOT	_	_
+
+</div>
+
+<h3>lowercase-value.conll</h3>
+
+<div class="conllu-parse" tabs="yes">
+# not valid: feature values must have format '[A-Z0-9][a-zA-Z0-9]*'
+# (see http://universaldependencies.github.io/docs/features.html)
+1	non-valid	non-valid	NOUN	SP	Lower=nonvalid	0	ROOT	_	_
+
+</div>
+
+<h3>malformed_deps.conll</h3>
+
+<div class="conllu-parse" tabs="yes">
+# This is a comment
+1	Gas	gas	NOUN	S	Gen=M|Num=N	0	ROOT	xxx	_
+
+</div>
+
+<h3>misordered-feature.conll</h3>
+
+<div class="conllu-parse" tabs="yes">
+# not valid: features must be ordered alphabetically (ignoring case)
+# (see http://universaldependencies.github.io/docs/features.html)
+1	non-valid	non-valid	NOUN	SP	XB=True|Xa=True	0	ROOT	_	_
+
+</div>
+
+<h3>misordered-multiword.conll</h3>
+
+<div class="conllu-parse" tabs="yes">
+# not valid: multiword tokens must appear before the first word in their
+# range
+1	I	I	PRON	PRN	Num=Sing|Per=1	2	nsubj	_	_
+2	have	have	VERB	VB	Tens=Pres	0	root	_	_
+2-3	haven't	_	_	_	_	_	_	_	_
+3	not	not	ADV	RB	_	2	neg	_	_
+4	a	a	DET	DT	_	5	det	_	_
+5	clue	clue	NOUN	NN	Num=Sing	2	dobj	_	_
+6	.	.	PUNCT	.	_	2	punct	_	_
+
+</div>
+
+<h3>misplaced-comment-mid.conll</h3>
+
+<div class="conllu-parse" tabs="yes">
+# not valid: comment lines inside sentences are disallowed.
+1	I	I	PRON	PRN	Num=Sing|Per=1	2	nsubj	_	_
+2-3	haven't	_	_	_	_	_	_	_	_
+# this comment should not be here
+2	have	have	VERB	VB	Tens=Pres	0	root	_	_
+3	not	not	ADV	RB	_	2	neg	_	_
+4	a	a	DET	DT	_	5	det	_	_
+5	clue	clue	NOUN	NN	Num=Sing	2	dobj	_	_
+6	.	.	PUNCT	.	_	2	punct	_	_
+
+</div>
+
+<h3>misplaced-comment-end.conll</h3>
+
+<div class="conllu-parse" tabs="yes">
+# not valid: comment lines should precede a sentence
+1	I	I	PRON	PRN	Num=Sing|Per=1	2	nsubj	_	_
+2-3	haven't	_	_	_	_	_	_	_	_
+2	have	have	VERB	VB	Tens=Pres	0	root	_	_
+3	not	not	ADV	RB	_	2	neg	_	_
+4	a	a	DET	DT	_	5	det	_	_
+5	clue	clue	NOUN	NN	Num=Sing	2	dobj	_	_
+6	.	.	PUNCT	.	_	2	punct	_	_
+
+# this comment should not be here as it does not precede a sentence.
+</div>
+
+<h3>missing final newline</h3>
+
+<div class="conllu-parse" tabs="yes">
+1	Gas	gas	NOUN	S	Gen=M|Num=N	0	root	_	_
+</div>
+
+<h3>multiword-with-pos.conll</h3>
+
+<div class="conllu-parse" tabs="yes">
+# not valid: multiword tokens must have underscore ("_") for all fields
+# except FORM.
+1	I	I	PRON	PRN	Num=Sing|Per=1	2	nsubj	_	_
+2-3	haven't	_	VERB	_	_	_	_	_	_
+2	have	have	VERB	VB	Tens=Pres	0	root	_	_
+3	not	not	ADV	RB	_	2	neg	_	_
+4	a	a	DET	DT	_	5	det	_	_
+5	clue	clue	NOUN	NN	Num=Sing	2	dobj	_	_
+6	.	.	PUNCT	.	_	2	punct	_	_
+
+</div>
+
+<h3>nonsequential-id.conll</h3>
+
+<div class="conllu-parse" tabs="yes">
+# not valid: IDs must be sequential integers (1, 2, ...)
+1	valid	valid	NOUN	SP	_	0	ROOT	_	_
+3	.	.	.	FS	_	1	p	_	_
+
+</div>
+
+<h3>overlapping-multiword.conll</h3>
+
+<div class="conllu-parse" tabs="yes">
+# not valid: multiword token ranges may not overlap
+1	I	I	PRON	PRN	Num=Sing|Per=1	2	nsubj	_	_
+2-3	haven't	_	_	_	_	_	_	_	_
+2	have	have	VERB	VB	Tens=Pres	0	root	_	_
+3-4	nota	_	_	_	_	_	_	_	_
+3	not	not	ADV	RB	_	2	neg	_	_
+4	a	a	DET	DT	_	5	det	_	_
+5	clue	clue	NOUN	NN	Num=Sing	2	dobj	_	_
+6	.	.	PUNCT	.	_	2	punct	_	_
+
+</div>
+
+<h3>space-in-field.conll</h3>
+
+<div class="conllu-parse" tabs="yes">
+# not valid: no field can contain space.
+1	not valid	valid	NOUN	SP	_	0	ROOT	_	_
+
+</div>
+
+<h3>token_with_cols_filled.conll</h3>
+
+<div class="conllu-parse" tabs="yes">
+# (TODO: is this the same general case as mutiword-with-pos.conll?)
+# This is a comment
+1	Gas	gas	NOUN	S	Gen=M|Num=N	0	ROOT	_	_
+2-3	dalla	dalla	_	_	_	0	ROOT	_	_
+2	da	da	ADP	EA	_	1	adpmod	_	_
+3	la	la	DET	RD	Gen=F|Num=S	4	det	_	_
+4	statua	statua	NOUN	S	Gen=F|Num=S	2	adpobj	_	_
+5	.	.	.	FS	_	1	p	_	_
+</div>
+
+<h3>trailing-tab.conll</h3>
+
+<div class="conllu-parse" tabs="yes">
+# not valid: extra TAB before newline
+1	non-valid	non-valid	NOUN	SP	_	0	ROOT	_	_	
+
+</div>
+
+
+
+<script type="text/javascript">
+    var root = ''; // filled in by jekyll
+    head.js(
+        // External libraries
+        root + 'lib/ext/jquery.min.js',
+        root + 'lib/ext/jquery.svg.min.js',
+        root + 'lib/ext/jquery.svgdom.min.js',
+        root + 'lib/ext/jquery-ui.min.js',
+        root + 'lib/ext/waypoints.min.js',
+
+        // brat helper modules
+        root + 'lib/brat/configuration.js',
+        root + 'lib/brat/util.js',
+        root + 'lib/brat/annotation_log.js',
+        root + 'lib/ext/webfont.js',
+        // brat modules
+        root + 'lib/brat/dispatcher.js',
+        root + 'lib/brat/url_monitor.js',
+        root + 'lib/brat/visualizer.js',
+
+        // annotation documentation support
+        'http://spyysalo.github.io/annodoc/lib/local/annodoc.js',
+        root + 'lib/local/config.js',
+
+        // the conllu.js library itself
+        root + 'conllu.js'
+    );
+
+    var webFontURLs = [
+        root + 'static/fonts/PT_Sans-Caption-Web-Regular.ttf',
+        root + 'static/fonts/Liberation_Sans-Regular.ttf'
+    ];
+
+    /* not used here */
+    var documentCollections = {};
+
+    head.ready(function() {
+	// performes all embedding and support functions
+	Annodoc.activate(Config.bratCollData, documentCollections);
+    });
+</script>
+
+
+</article></div></div></div></body><script type="text/javascript" src="./tests_files/jquery.min.js.download"></script><script type="text/javascript" src="./tests_files/jquery.svg.min.js.download"></script><script type="text/javascript" src="./tests_files/jquery.svgdom.min.js.download"></script><script type="text/javascript" src="./tests_files/jquery-ui.min.js.download"></script><script type="text/javascript" src="./tests_files/waypoints.min.js.download"></script><script type="text/javascript" src="./tests_files/configuration.js.download"></script><script type="text/javascript" src="./tests_files/util.js.download"></script><script type="text/javascript" src="./tests_files/annotation_log.js.download"></script><script type="text/javascript" src="./tests_files/webfont.js.download"></script><script type="text/javascript" src="./tests_files/dispatcher.js.download"></script><script type="text/javascript" src="./tests_files/url_monitor.js.download"></script><script type="text/javascript" src="./tests_files/visualizer.js.download"></script><script type="text/javascript" src="./tests_files/annodoc.js.download"></script><script type="text/javascript" src="./tests_files/config.js.download"></script><script type="text/javascript" src="./tests_files/conllu.js.download"></script></html>
